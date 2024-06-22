@@ -27,9 +27,8 @@ app.use("/auth", ForgotPassword);
 router.get("/", verifyToken, Home.Home);
 
 module.exports = router;
+const port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log(`Server Started on port ${port}`);
+});
 
-if (config) {
-  app.listen(process.env.PORT, () => {
-    console.log(`Server Started on port ${process.env.PORT}`);
-  });
-}
